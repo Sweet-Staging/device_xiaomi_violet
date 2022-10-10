@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2019-2020 The LineageOS Project
-# Copyright (C) 2018-2020 The SuperiorOS Project
+# Copyright (C) 2018-2020 The PixelExtended Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -8,11 +8,20 @@
 # Inherit from violet device
 $(call inherit-product, device/xiaomi/violet/device.mk)
 
-# Inherit some common SuperiorOS stuff.
-$(call inherit-product, vendor/arrow/config/common.mk)
+# Inherit some common PixelExtended stuff.
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 # Inherit ANX Camera
 #$(call inherit-product, vendor/ANXCamera/config.mk)
+
+# PixelExtended Official Stuff
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
+TARGET_SUPPORTS_QUICK_TAP := false
+EXTRA_UDFPS_ANIMATIONS := true
+PEX_BUILD_TYPE=OFFICIAL
+IS_PHONE := true
 
 # Bootanimation Resolution
 TARGET_BOOT_ANIMATION_RES := 1080
@@ -21,7 +30,7 @@ TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_INCLUDE_PIXEL_CHARGER := true
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := arrow_violet
+PRODUCT_NAME := aosp_violet
 PRODUCT_DEVICE := violet
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 7 Pro
